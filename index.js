@@ -7,11 +7,19 @@ let score = 0;
 document.querySelector(".score").textContent = score;
 
 fetch("cards.json")
-  .then((res) => res.json())
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error('Failed to fetch cards');
+    }
+    return res.json();
+  })
   .then((data) => {
-    cards = [...data, ...data];
+    cards = [...data, ...data]; // This duplicates the cards for matching pairs
     shuffleCards();
     generateCards();
+  })
+  .catch(error => {
+    console.error('Error loading cards:', error);
   });
 
 function shuffleCards() {
