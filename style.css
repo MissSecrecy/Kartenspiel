@@ -1,6 +1,6 @@
 body {
-  min-height: 100vh;
-  min-width: 100vh;
+  min-height: 100vw;
+  min-width: 100vw;
   background-color: #12181f;
   color: white;
 }
@@ -71,6 +71,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: rotateY(180deg);
 }
 
 .card .back {
@@ -78,8 +79,4 @@ p {
   background-position: center center;
   background-size: cover;
   backface-visibility: hidden;
-}
-
-.card .front {
-  transform: rotateY(180deg);
 }
